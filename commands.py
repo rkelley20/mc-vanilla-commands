@@ -41,14 +41,16 @@ def command_add_warp(name: str, args: str):
     loc, x, y, z = cmd.split(' ')
     warps[loc] = (x, y, z)
     rcon.say(f'Added warp {loc} at {x}, {y}, {z}')
+    write_warps()
 
 def command_del_warp(name: str, args: str):
     try:
         del warps[args]
     except KeyError:
-        rcon.say(f'{args} removed from the warp list!')
-    else:
         rcon.say(f'The warp {args} does not exist :(')
+    else:
+        rcon.say(f'{args} removed from the warp list!')
+        write_warps()
 
 def command_sun(name: str, args: str):
     rcon.command('time set day')
@@ -81,6 +83,8 @@ while True:
     idx = typed.find(' ')
     cmd = typed[:idx].lower()
     args = typed[idx+1:].lower()
+
+    print(cmd, args)
 
     try:
         callbacks[cmd](name, args)
