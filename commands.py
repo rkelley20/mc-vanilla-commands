@@ -65,6 +65,7 @@ def command_dice(name: str, args: str):
 def command_awww_man(name: str, args: str):
     for line in constants.revenge_lyrics:
         rcon.say(line)
+        time.sleep(0.5)
 
 callbacks = {
     'exec': command_exec,
