@@ -85,7 +85,7 @@ while True:
         cmd = typed[:idx].lower()
         args = typed[idx+1:].lower()
     else:
-        cmd = typed
+        cmd = typed.lower()
         args = None
 
     try:
