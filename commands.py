@@ -7,6 +7,7 @@ import subprocess
 import re
 import json
 import random
+import threading
 
 rcon = MCRcon('localhost', 'rcon')
 rcon.connect()
@@ -63,9 +64,11 @@ def command_dice(name: str, args: str):
     rcon.say(f'You rolled {random.randint(1, 6)}')
 
 def command_awww_man(name: str, args: str):
-    for line in constants.revenge_lyrics:
-        rcon.say(line)
-        time.sleep(1)
+    def do_aww_man():
+        for line in constants.revenge_lyrics:
+            rcon.say(line)
+            time.sleep(1)
+    threading.Thread(target=do_aww_man).start()
 
 callbacks = {
     'exec': command_exec,
