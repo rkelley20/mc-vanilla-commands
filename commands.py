@@ -9,7 +9,7 @@ import json
 rcon = MCRcon('localhost', 'rcon')
 rcon.connect()
 
-setattr(rcon, 'say', lambda self, s: self.command(f'say {s}'))
+setattr(rcon, 'say', lambda s: rcon.command(f'say {s}'))
 
 with open('warps.json') as fp:
     warps = json.load(fp)
