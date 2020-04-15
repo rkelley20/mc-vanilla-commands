@@ -81,10 +81,12 @@ while True:
     typed = matches.group(2)
 
     idx = typed.find(' ')
-    cmd = typed[:idx].lower()
-    args = typed[idx+1:].lower()
-
-    print(cmd, args)
+    if idx != -1:
+        cmd = typed[:idx].lower()
+        args = typed[idx+1:].lower()
+    else:
+        cmd = typed
+        args = None
 
     try:
         callbacks[cmd](name, args)
