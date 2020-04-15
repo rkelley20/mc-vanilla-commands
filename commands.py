@@ -72,10 +72,16 @@ def command_awww_man(name: str, args: str):
         time.sleep(1)
 
 def command_tp(name: str, args: str):
-    rcon.command(f'tp {name} {args}')
+    if name == args:
+        rcon.say('Do not tp to yourself idiot')
+    else:
+        rcon.command(f'tp {name} {args}')
 
 def command_tp_here(name: str, args: str):
-    rcon.command(f'tp {args} {name}')
+    if name == args:
+        rcon.say('Do not tp to yourself idiot')
+    else:
+        rcon.command(f'tp {args} {name}')
 
 callbacks = {
     'exec': command_exec,
