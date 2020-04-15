@@ -71,6 +71,12 @@ def command_awww_man(name: str, args: str):
         rcon.say(line)
         time.sleep(1)
 
+def command_tp(name: str, args: str):
+    rcon.command(f'tp {name} {args}')
+
+def command_tp_here(name: str, args: str):
+    rcon.command(f'tp {args} {name}')
+
 callbacks = {
     'exec': command_exec,
     'joke': command_joke,
@@ -80,7 +86,9 @@ callbacks = {
     'delwarp': command_del_warp,
     'sun': command_sun,
     'dice': command_dice,
-    'awwwman': command_awww_man
+    'awwwman': command_awww_man.
+    'tp': command_tp,
+    'tphere': command_tp_here
 }
 
 
@@ -91,7 +99,7 @@ while True:
     matches = re.search(r'<(.*?)> (.*)', latest)
 
     if matches is None:
-        time.sleep(1)
+        time.sleep(0.5)
         continue
 
     name = matches.group(1)
