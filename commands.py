@@ -22,7 +22,7 @@ def command_exec(name: str, args: str):
     rcon.say(utils.exec_python(args))
 
 def command_joke(name: str, args: str):
-    rcon.say(get_joke())
+    rcon.say(utils.get_joke())
 
 def command_warps(name: str, args: str):
     locs = ', '.join(warps)
