@@ -2,6 +2,7 @@ import contextlib
 import sys
 from io import StringIO
 import ast
+import requests
 
 @contextlib.contextmanager
 def redirect_stdout(stdout=None):
