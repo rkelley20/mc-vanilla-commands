@@ -21,7 +21,7 @@ def write_warps():
         json.dump(warps, fp) 
 
 def command_exec(name: str, args: str):
-    rcon.say(utils.exec_python(args))
+    rcon.say(utils.exec_python(args, locals(), globals()))
 
 def command_joke(name: str, args: str):
     rcon.say(utils.get_joke())

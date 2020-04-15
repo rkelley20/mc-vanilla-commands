@@ -13,11 +13,11 @@ def redirect_stdout(stdout=None):
     yield stdout
     sys.stdout = old
 
-def exec_python(cmd: str) -> str:
+def exec_python(cmd: str, _locals, _globals) -> str:
     with redirect_stdout() as s:
         try:
             blocks = ast.parse(cmd, mode='exec')
-            exec(compile(blocks, '<string>', mode='exec'), locals(), globals())
+            exec(compile(blocks, '<string>', mode='exec'), _locals, _globals)
         except Exception as e:
             val = str(e)
         else:
