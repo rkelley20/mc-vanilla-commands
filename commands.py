@@ -55,6 +55,7 @@ def command_del_warp(name: str, args: str):
 def command_sun(name: str, args: str):
     rcon.command('time set day')
     rcon.command('weather clear')
+    rcon.say(f'Jesus Christ has blessed us...')
 
 callbacks = {
     'exec': command_exec,
