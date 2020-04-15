@@ -38,7 +38,7 @@ def command_warp(name: str, args: str):
         rcon.say(f'{name} teleported to {args}')
 
 def command_add_warp(name: str, args: str):
-    loc, x, y, z = cmd.split(' ')
+    loc, x, y, z = args.split(' ')
     warps[loc] = (x, y, z)
     rcon.say(f'Added warp {loc} at {x}, {y}, {z}')
     write_warps()
