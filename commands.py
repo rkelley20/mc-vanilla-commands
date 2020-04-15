@@ -31,11 +31,11 @@ def command_warps(name: str, args: str):
 def command_warp(name: str, args: str):
     coords = warps.get(args)
     if coords is None:
-        rcon.say(f'The warp {loc} was not found, list warps by typing warps')
+        rcon.say(f'The warp {args} was not found, list warps by typing warps')
     else:
         coords = ' '.join(map(str, coords))
         rcon.command(f'tp {name} {coords}')
-        rcon.say(f'{name} teleported to {loc}')
+        rcon.say(f'{name} teleported to {args}')
 
 def command_add_warp(name: str, args: str):
     loc, x, y, z = cmd.split(' ')
