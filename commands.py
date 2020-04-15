@@ -86,7 +86,7 @@ callbacks = {
     'delwarp': command_del_warp,
     'sun': command_sun,
     'dice': command_dice,
-    'awwwman': command_awww_man.
+    'awwwman': command_awww_man,
     'tp': command_tp,
     'tphere': command_tp_here
 }
