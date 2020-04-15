@@ -41,10 +41,13 @@ def command_warp(name: str, args: str):
         rcon.say(f'{name} teleported to {args}')
 
 def command_add_warp(name: str, args: str):
-    loc, x, y, z = args.split(' ')
-    warps[loc] = (x, y, z)
-    rcon.say(f'Added warp {loc} at {x}, {y}, {z}')
-    write_warps()
+    if len(warps) >= 10:
+        rcon.say('Warps are limited to 10, you must delete a warp before adding another one.')
+    else:
+        loc, x, y, z = args.split(' ')
+        warps[loc] = (x, y, z)
+        rcon.say(f'Added warp {loc} at {x}, {y}, {z}')
+        write_warps()
 
 def command_del_warp(name: str, args: str):
     try:
