@@ -75,14 +75,14 @@ while True:
         time.sleep(1)
         continue
 
-    name = c.group(1)
-    typed = c.group(2)
+    name = matches.group(1)
+    typed = matches.group(2)
 
     idx = typed.find(' ')
     cmd = typed[:idx].lower()
     args = typed[idx+1:].lower()
 
-    callbacks[cmd](args)
+    callbacks[cmd](name, args)
 
 
 rcon.disconnect()
