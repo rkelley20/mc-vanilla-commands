@@ -5,6 +5,7 @@ import requests
 import subprocess
 import re
 import json
+import random
 
 rcon = MCRcon('localhost', 'rcon')
 rcon.connect()
@@ -57,6 +58,9 @@ def command_sun(name: str, args: str):
     rcon.command('weather clear')
     rcon.say(f'Jesus Christ has blessed us...')
 
+def command_dice(name: str, args: str):
+    rcon.say(f'You rolled {random.randint(1, 6)}')
+
 callbacks = {
     'exec': command_exec,
     'joke': command_joke,
@@ -64,7 +68,8 @@ callbacks = {
     'warp': command_warp,
     'addwarp': command_add_warp,
     'delwarp': command_del_warp,
-    'sun': command_sun
+    'sun': command_sun,
+    'dice': command_dice
 }
 
 
