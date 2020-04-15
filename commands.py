@@ -1,4 +1,5 @@
 from mcrcon import MCRcon
+import constants
 import utils
 import time
 import requests
@@ -61,6 +62,10 @@ def command_sun(name: str, args: str):
 def command_dice(name: str, args: str):
     rcon.say(f'You rolled {random.randint(1, 6)}')
 
+def command_awww_man(name: str, args: str):
+    for line in constants.revenge_lyrics:
+        rcon.say(line)
+
 callbacks = {
     'exec': command_exec,
     'joke': command_joke,
@@ -69,7 +74,8 @@ callbacks = {
     'addwarp': command_add_warp,
     'delwarp': command_del_warp,
     'sun': command_sun,
-    'dice': command_dice
+    'dice': command_dice,
+    'awwwman': command_awww_man
 }
 
 
