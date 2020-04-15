@@ -82,7 +82,10 @@ while True:
     cmd = typed[:idx].lower()
     args = typed[idx+1:].lower()
 
-    callbacks[cmd](name, args)
+    try:
+        callbacks[cmd](name, args)
+    except KeyError:
+        pass
 
 
 rcon.disconnect()
