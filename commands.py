@@ -121,8 +121,8 @@ while True:
 
     try:
         callbacks[cmd](name, args)
-    except KeyError:
-        pass
+    except:
+        rcon.say('You typed the command wrong Pepega :)')
 
 
 rcon.disconnect()
