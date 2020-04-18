@@ -76,12 +76,14 @@ def command_tp(name: str, args: str):
         rcon.say('Do not tp to yourself idiot')
     else:
         rcon.command(f'tp {name} {args}')
+        rcon.say(f'{name} tpd to {args}')
 
 def command_tp_here(name: str, args: str):
     if name == args:
         rcon.say('Do not tp to yourself idiot')
     else:
         rcon.command(f'tp {args} {name}')
+        rcon.say(f'{args} tpd to {name}')
 
 callbacks = {
     'exec': command_exec,
