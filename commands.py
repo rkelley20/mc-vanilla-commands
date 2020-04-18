@@ -122,7 +122,12 @@ while True:
         args = None
 
     try:
-        callbacks[cmd](name, args)
+        command = callbacks[cmd]
+    except KeyError:
+        continue
+
+    try:
+        command(name, args)
     except:
         rcon.say('You typed the command wrong Pepega :)')
 
