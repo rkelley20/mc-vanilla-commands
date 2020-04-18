@@ -85,6 +85,10 @@ def command_tp_here(name: str, args: str):
         rcon.command(f'tp {args} {name}')
         rcon.say(f'{args} tpd to {name}')
 
+def command_nether(name: str, args: str):
+    rcon.command(f'execute as {name} in minecraft:the_nether run tp 161 84 -196')
+    rcon.say(f'{name} teleported to the nether')
+
 callbacks = {
     'exec': command_exec,
     'joke': command_joke,
@@ -96,7 +100,8 @@ callbacks = {
     'dice': command_dice,
     'awwwman': command_awww_man,
     'tp': command_tp,
-    'tphere': command_tp_here
+    'tphere': command_tp_here,
+    'nether': command_nether
 }
 
 
